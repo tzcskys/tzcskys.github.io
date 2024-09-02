@@ -4,63 +4,69 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug"
 
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+// const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const last_posts = posts.slice(0, 3);
+// const last_posts = posts.slice(0, 3);
 ---
+
+<style>
+  a:link {
+    color: #0000ee; /* 定义未访问链接的颜色 */
+    text-decoration: none; /* 可选：去除下划线 */
+  }
+  a:visited {
+    color: #551a8b; /* 定义已访问链接的颜色 */
+  }
+  a:hover {
+    color: #ff0000; /* 定义鼠标悬停时链接的颜色 */
+    text-decoration: underline; /* 可选：添加下划线 */
+  }
+  .publication li {
+  margin-bottom: 20px; /* 在列表项底部增加10像素的外边距 */
+  }
+</style>
 
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Mingjian Li</div>
-    <div class="text-3xl py-3 font-bold">PhD Candidate</div>
-    <div class="py-2">
-      <text class="text-lg">
-        This is <b>Astrofy</b> a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS.
-        Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed. I hope you find
-        it useful!
-      </text>
-    </div>
-    <div class="mt-8">
-      <a class="btn" href="https://twitter.com/manuelernestog" target="_blank"> Let's connect!</a>
-      <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
-        Get This template
-      </a>
+    <div class="text-3xl font-bold">Mingjian Li</div>
+    <div class="text-md py-3 font-bold">PhD student in Medical Imaging Analysis</div>
+    <div >
+      <text class="text-sm"><i>
+        Email: 
+        <a
+              class="py-3 text-base"
+              href="mailto:mili3287@uni.sydney.edu.au"
+              target="_blank"
+              referrerpolicy="no-referrer-when-downgrade">mili3287@uni.sydney.edu.au</a>
+      </i></text>
+      <div class="divider my-0"></div>
     </div>
   </div>
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
-  </div>
+  <div class="text-xl w-full font-bold mb-2" style="margin-top: -30px;">Short Biography</div>
 
-  <HorizontalCard
+  <text class="text-sm">
+    I am a PhD student (medical image analysis) supported by Australian RTP scholarship, supervised by Prof. Jinman Kim, and Prof. Dagan Feng.  I am in the School of Computer Science and the <a href="https://bdavsydney.github.io/">Biomedical Data Analysis and Visualisation (BDAV) group</a>, School of Computer Science, <a href="https://www.sydney.edu.au/">The University of Sydney</a>. Prior to this, I received B. CS degree from <a href="https://www.tju.edu.cn/english/index.htm">TianJin University</a>, China, 2018. <br><br>
+    <b>Research Area</b>: Deep Learning, Medical Image Analysis, 3D Visualization 
+  </text><br>
+  <!-- <HorizontalCard
     title="Demo Project 1"
     img="/post_img.webp"
     desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     url="#"
     badge="NEW"
-  />
+  /> -->
+
   <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
-  />
 
   <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+    <div class="text-xl w-full font-bold mb-5 mt-5">Publications</div>
+      ToDo
   </div>
+  <div class="divider my-0"></div>
 
-  {
+
+  <!-- {
     last_posts.map((post) => (
       <>
         <HorizontalCard
@@ -74,5 +80,5 @@ const last_posts = posts.slice(0, 3);
         <div class="divider my-0" />
       </>
     ))
-  }
+  } -->
 </BaseLayout>
